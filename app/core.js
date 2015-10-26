@@ -1,10 +1,14 @@
 import {Map, fromJS} from 'immutable';
+import fetch from 'node-fetch';
 
 export const INITIAL_STATE = Map();
 
 function getSubredditData(name) {
   // fetch the json data from reddit
-  throw new Error('NotImplementedException');
+  fetch.get('http://www.reddit.com/r/' + name)
+  .then((res) => res.json())
+  .then((json) => json.title);
+
   return {};
 }
 
@@ -26,16 +30,12 @@ export function addSubreddit(state, subreddit) {
 export function removeSubreddit(state, subreddit) {
   // remove
   if(state.subreddits){
-    return state.subreddits[subreddit]
-    ? state.subreddits.delete(subreddit)
-    : state;
+    return state.subreddits[subreddit] ? state.subreddits.delete(subreddit) : state;
   }
-
   return state;
 }
 
 export function clearAllSubreddits(state) {
   // clear tree
- throw new Error('Not Implemented');
   return state;
 }

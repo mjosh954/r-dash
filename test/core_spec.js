@@ -106,10 +106,10 @@ describe('core', () => {
         subreddits: {
           'javascript' : {}
         }
-      }))
+      }));
     });
 
-    it('removes a subreddit that does not exist in collection', () => {
+    it('sets error on removal of a subreddit that does not exist in collection', () => {
       let state = fromJS({
         subreddits: {
           'programming' : {}
@@ -119,14 +119,12 @@ describe('core', () => {
       let nextState = removeSubreddit(state, 'funny');
 
       expect(nextState).to.equal(fromJS({
-        errorMessage: 'Subreddit does not exist in collection'
         subreddits: {
-          'programming': {}
-        }
+          'programming' : {}
+        },
+        errorMessage: 'Subreddit does not exist in the collection'
       }));
     });
   });
-
-
 
 });
