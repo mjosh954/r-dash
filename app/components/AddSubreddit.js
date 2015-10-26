@@ -1,26 +1,23 @@
 import React, {Component} from 'react';
 
 export default class AddSubreddit extends Component {
-  constructor(props) {
-    super(props);
-  }
+
 
   render() {
     return (
-      <form onSubmit={this.onAddSubreddit}>
-        <div className='row'>
-          <div className='input-field col s11'>
-            <input type='text'
-              placeholder='subreddit'
+      <div className='form-inline'>
+          <div className='input-group input-group-lg'>
+            <div className='input-group-addon'><i className="fa fa-reddit-square fa-lg"></i></div>
+            <input className='form-control'
+              type='text' placeholder='subreddit'
               value={this.props.subredditValue}
               onChange={this.props.subredditTextChange} />
-          </div>
-          <div className='col s1'>
-          <a className='btn-floating btn-large waves-effect waves-light red'><i className='material-icons'>add</i></a>
-          </div>
+            <span className='input-group-btn'>
+              <button className='btn btn-primary btn-lg' onClick={this.props.onAddSubreddit}><i className="fa fa-plus"></i></button>
+          </span>
         </div>
         {this.props.showInvalidSubreddit ? <div className='row'><p>Invalid</p></div> : ''}
-      </form>
+      </div>
     );
   }
 }

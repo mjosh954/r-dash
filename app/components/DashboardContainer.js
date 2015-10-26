@@ -37,7 +37,6 @@ export default class DashboardContainer extends Component {
             key: result.data.after,
             data: result.data
           });
-
           this.setState({
             addSubredditText: '',
             subreddits
@@ -45,9 +44,6 @@ export default class DashboardContainer extends Component {
         } else {
           this.setState({invalidSubreddit: true});
         }
-
-
-
       }).catch((err) => {
         this.setState({invalidSubreddit: true})
       });
@@ -68,6 +64,7 @@ export default class DashboardContainer extends Component {
   }
 
   handleSubredditTextChange(event) {
+    console.log(event);
     this.setState({addSubredditText: event.target.value})
   }
 

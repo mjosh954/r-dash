@@ -2,15 +2,11 @@ import React, {Component} from 'react';
 import Widget from './Widget';
 
 export default class Dashboard extends Component {
-  constructor(props) {
-    super(props);
 
-
-  }
 
   render() {
-
     var subreddits = this.props.subreddits || [];
+
     var widgets = subreddits.map((subreddit) => {
       return (
         <Widget key={subreddit.key}
@@ -20,7 +16,7 @@ export default class Dashboard extends Component {
     });
 
     return (
-      <div className='row'>
+      <div className='container-fluid'>
         {widgets}
       </div>
     );

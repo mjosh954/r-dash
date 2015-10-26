@@ -15,14 +15,14 @@ export default class Widget extends Component {
 
     return (
       <WidgetContainer>
-          <ul className='collection with-header'>
-            <WidgetTitle
-              key={this.props.key}
-              title={this.props.subreddit.title}
-              removeSubredditClick={this.props.removeSubreddit}/>
-            {listings}
-          </ul>
-        </WidgetContainer>
+        <ul className='list-group'>
+          <WidgetTitle
+            key={this.props.key}
+            title={this.props.subreddit.title}
+            removeSubredditClick={this.props.removeSubreddit}/>
+          {listings}
+        </ul>
+      </WidgetContainer>
     )
   }
 
