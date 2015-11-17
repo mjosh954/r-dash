@@ -1,17 +1,17 @@
-import React from 'react';
+import React, { Component } from 'react';
 import ReactDom from 'react-dom';
 import DashboardContainer from './components/DashboardContainer';
-import {Provider} from 'react-redux';
+import { Provider } from 'react-redux';
 
+import makeStore from './store';
 
-import makeStore = from './app/store';
-export const store = makeStore();
+const store = makeStore();
+const MOUNT_NODE = document.getElementById('app');
 
-export default class App extends React.Component {
+export default class App extends Component {
 
-  render() {
+  render () {
     return <DashboardContainer />;
-
   }
 }
 
@@ -19,5 +19,5 @@ ReactDom.render(
   <Provider store={store}>
     <App />
   </Provider>,
-  document.getElementById('app')
+  MOUNT_NODE
 );

@@ -1,12 +1,18 @@
-import React, {Component} from 'react';
+import React, {PropTypes, Component} from 'react';
 
-export default class WidgetContainer extends Component {
-  render() {
+class WidgetContainer extends Component {
 
+  render () {
     return (
-        <div className="container col-md-4">
+        <div className='container col-md-4'>
           {this.props.children}
         </div>
-    )
+    );
   }
 }
+
+WidgetContainer.propTypes = {
+  children: PropTypes.element
+};
+
+export default WidgetContainer;

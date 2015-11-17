@@ -1,9 +1,8 @@
-import React, {Component} from 'react';
+import React, { PropTypes, Component } from 'react';
 
-export default class Widget extends Component {
+class Widget extends Component {
 
-  render() {
-
+  render () {
     return (
       <li className='list-group-item'>
         <h4>{this.props.title}</h4>
@@ -11,3 +10,9 @@ export default class Widget extends Component {
     );
   }
 }
+
+Widget.propTypes = {
+  title: PropTypes.string
+};
+
+export default Widget;

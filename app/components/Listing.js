@@ -1,8 +1,16 @@
-import React, {Component} from 'react';
+import React, {PropTypes, Component} from 'react';
 
-export default class Listing extends Component {
+class Listing extends Component {
 
-  render(){
-    return <li className='list-group-item'>{this.props.title}</li>
+  render () {
+    return (
+      <li className='list-group-item'>{this.props.title}</li>
+    );
   }
 }
+
+Listing.propTypes = {
+  title: PropTypes.string
+};
+
+export default Listing;

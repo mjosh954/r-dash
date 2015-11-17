@@ -1,17 +1,13 @@
-import React, {Component} from 'react';
+import React, {PropTypes, Component} from 'react';
 import Listing from './Listing';
 import WidgetTitle from './WidgetTitle';
 import WidgetContainer from './WidgetContainer';
 
-export default class Widget extends Component {
-  constructor(props){
-    super(props);
-  }
+class Widget extends Component {
 
-  render() {
-
-    var listings = this.props.subreddit.data.children.slice(0, 5)
-    .map((listing) => <Listing key={listing.data.id} title={listing.data.title} />)
+  render () {
+    const listings = this.props.subreddit.data.children.slice(0, 5)
+    .map((listing) => <Listing key={listing.data.id} title={listing.data.title} />);
 
     return (
       <WidgetContainer>
@@ -23,7 +19,15 @@ export default class Widget extends Component {
           {listings}
         </ul>
       </WidgetContainer>
-    )
+    );
   }
 
 }
+
+Widget.propTypes = {
+  key: PropTypes.string,
+  subreddit: PropTypes.object,
+  removeSubreddit: PropTypes.function
+};
+
+export default Widget;

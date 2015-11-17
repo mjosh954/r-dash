@@ -1,13 +1,12 @@
-import React, {Component} from 'react';
+import React, {PropTypes, Component} from 'react';
 import Widget from './Widget';
 
 export default class Dashboard extends Component {
 
+  render () {
+    const subreddits = this.props.subreddits || [];
 
-  render() {
-    var subreddits = this.props.subreddits || [];
-
-    var widgets = subreddits.map((subreddit) => {
+    const widgets = subreddits.map((subreddit) => {
       return (
         <Widget key={subreddit.key}
           subreddit={subreddit}
@@ -22,3 +21,10 @@ export default class Dashboard extends Component {
     );
   }
 }
+
+Dashboard.propTypes = {
+  subreddits: PropTypes.array,
+  removeSubreddit: PropTypes.function
+};
+
+export default Dashboard;
