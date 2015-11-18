@@ -42,6 +42,7 @@
     "imports-loader": "^0.6.5",
     "isomorphic-fetch": "^2.2.0",
     "lodash": "^3.10.1",
+    "normalizr": "^1.4.0",
     "open": "0.0.5",
     "react": "^0.14.2",
     "react-dom": "^0.14.2",

@@ -1,8 +1,6 @@
 import React, { PropTypes, Component } from 'react';
 
 export default class AddSubreddit extends Component {
-
-
   render () {
     return (
       <div className='form-inline'>
@@ -24,7 +22,7 @@ export default class AddSubreddit extends Component {
 
 AddSubreddit.propTypes = {
   subredditValue: PropTypes.string,
-  subredditTextChange: PropTypes.string,
+  subredditTextChange: PropTypes.function,
   onAddSubreddit: PropTypes.function,
   showInvalidSubreddit: PropTypes.bool
 };

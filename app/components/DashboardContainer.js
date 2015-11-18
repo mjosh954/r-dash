@@ -1,7 +1,7 @@
 import React, {Component} from 'react';
 import AddSubreddit from './AddSubreddit';
 import Dashboard from './Dashboard';
-import _ from 'lodash';
+import {findIndex} from 'lodash';
 
 export default class DashboardContainer extends Component {
   constructor (props) {
@@ -24,31 +24,23 @@ export default class DashboardContainer extends Component {
       });
   }
 
-  handleRemoveSubreddit (e) {
-    console.log(e);
-    const subreddits = this.state.subreddits;
-    console.log(subreddits);
-  }
-
-
   handleAddSubreddit () {
     this.setState({invalidSubreddit: false});
     const subreddit = this.state.addSubredditText;
 
     if (subreddit && subreddit.length > 0) {
       const subreddits = this.state.subreddits;
-      if (_.findIndex(subreddits, sr => sr.title === subreddit) > -1) {
+      if (findIndex(subreddits, sr => sr.title === subreddit) > -1) {
         this.setState({invalidSubreddit: true });
       }
 
       this.getSubreddit(subreddit)
-      .then((result) => {
-        console.log(result);
-        if (result.data.after !== null) {
+      .then(({data}) => {
+        if (data.after !== null) {
           subreddits.push({
             title: subreddit,
-            key: result.data.after,
-            data: result.data
+            key: data.after,
+            data: data
           });
           this.setState({
             addSubredditText: '',
@@ -64,24 +56,21 @@ export default class DashboardContainer extends Component {
     }
   }
 
-
-  handleSubredditTextChange (event) {
-    console.log(event);
-    this.setState({addSubredditText: event.target.value});
-  }
-
   render () {
+    const handleRemoveSubreddit = (e) => console.log(e);
+    const handleSubredditTextChange = (e) => this.setState({addSubredditText: e.target.value});
+
     return (
       <div>
         <div className='container'>
           <h3>R-Dash</h3>
           <AddSubreddit onAddSubreddit={this.handleAddSubreddit.bind(this)}
             subredditValue={this.state.addSubredditText}
-            subredditTextChange={this.handleSubredditTextChange.bind(this)}
+            subredditTextChange={handleSubredditTextChange}
             showInvalidSubreddit={this.state.invalidSubreddit} />
         </div>
         <Dashboard subreddits={this.state.subreddits}
-          removeSubreddit={this.handleRemoveSubreddit} />
+          removeSubreddit={handleRemoveSubreddit} />
       </div>
     );
   }

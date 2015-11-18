@@ -3,9 +3,9 @@ import ReactDom from 'react-dom';
 import DashboardContainer from './components/DashboardContainer';
 import { Provider } from 'react-redux';
 
-import makeStore from './store';
+import configureStore from './store/configureStore';
 
-const store = makeStore();
+const store = configureStore();
 const MOUNT_NODE = document.getElementById('app');
 
 export default class App extends Component {

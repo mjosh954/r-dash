@@ -3,6 +3,16 @@
   "env"     : {
     "browser" : true
   },
+  "globals" : {
+    "__DEV__"      : false,
+    "__PROD__"     : false,
+    "__DEBUG__"    : false,
+    "__DEBUG_NW__" : false
+  },
+  "ecmaFeatures": {
+    "restParams": true,
+    "classes": true
+  },
   "rules": {
     "comma-dangle" : [1, "never"],
     "func-names"   : 0,
