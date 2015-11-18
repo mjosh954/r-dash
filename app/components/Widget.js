@@ -27,7 +27,7 @@ class Widget extends Component {
 Widget.propTypes = {
   key: PropTypes.string,
   subreddit: PropTypes.object,
-  removeSubreddit: PropTypes.function
+  removeSubreddit: PropTypes.func
 };
 
 export default Widget;

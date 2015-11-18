@@ -11,6 +11,6 @@ class Listing extends Component {
 
 Listing.propTypes = {
   title: PropTypes.string
-}
+};
 
 export default Listing;

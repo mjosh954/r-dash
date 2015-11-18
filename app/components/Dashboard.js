@@ -24,7 +24,7 @@ export default class Dashboard extends Component {
 
 Dashboard.propTypes = {
   subreddits: PropTypes.array,
-  removeSubreddit: PropTypes.function
+  removeSubreddit: PropTypes.func
 };
 
 export default Dashboard;

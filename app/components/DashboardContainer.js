@@ -8,13 +8,12 @@ export default class DashboardContainer extends Component {
     super(props);
 
     this.state = {
-      addSubredditText: '',
+      subredditText: '',
       subreddits: [],
       invalidSubreddit: false
     };
 
     this.getSubreddit = this.getSubreddit.bind(this);
-    this.handleRemoveSubreddit = this.handleRemoveSubreddit.bind(this);
   }
 
   getSubreddit (subreddit) {
@@ -26,7 +25,7 @@ export default class DashboardContainer extends Component {
 
   handleAddSubreddit () {
     this.setState({invalidSubreddit: false});
-    const subreddit = this.state.addSubredditText;
+    const subreddit = this.state.subredditText;
 
     if (subreddit && subreddit.length > 0) {
       const subreddits = this.state.subreddits;
@@ -43,14 +42,13 @@ export default class DashboardContainer extends Component {
             data: data
           });
           this.setState({
-            addSubredditText: '',
+            subredditText: '',
             subreddits
           });
         } else {
           this.setState({invalidSubreddit: true});
         }
-      }).catch((err) => {
-        console.log(err);
+      }).catch(() => {
         this.setState({invalidSubreddit: true});
       });
     }
@@ -58,14 +56,14 @@ export default class DashboardContainer extends Component {
 
   render () {
     const handleRemoveSubreddit = (e) => console.log(e);
-    const handleSubredditTextChange = (e) => this.setState({addSubredditText: e.target.value});
+    const handleSubredditTextChange = (e) => this.setState({subredditText: e.target.value});
 
     return (
       <div>
         <div className='container'>
           <h3>R-Dash</h3>
           <AddSubreddit onAddSubreddit={this.handleAddSubreddit.bind(this)}
-            subredditValue={this.state.addSubredditText}
+            subredditValue={this.state.subredditText}
             subredditTextChange={handleSubredditTextChange}
             showInvalidSubreddit={this.state.invalidSubreddit} />
         </div>

@@ -22,8 +22,8 @@ export default class AddSubreddit extends Component {
 
 AddSubreddit.propTypes = {
   subredditValue: PropTypes.string,
-  subredditTextChange: PropTypes.function,
-  onAddSubreddit: PropTypes.function,
+  subredditTextChange: PropTypes.func,
+  onAddSubreddit: PropTypes.func,
   showInvalidSubreddit: PropTypes.bool
 };
 
