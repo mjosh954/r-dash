@@ -21,7 +21,7 @@ export default class Root extends Component {
       <div>
         <Provider store={this.props.store}>
           <div>
-            <DashboardContainer />
+            {() => <DashboardContainer />}
             {this.renderDevTools()}
           </div>
         </Provider>

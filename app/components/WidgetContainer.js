@@ -2,6 +2,10 @@ import React, {PropTypes, Component} from 'react';
 
 class WidgetContainer extends Component {
 
+  static propTypes = {
+    children: PropTypes.element
+  }
+
   render () {
     return (
         <div className='container col-md-4'>
@@ -10,9 +14,5 @@ class WidgetContainer extends Component {
     );
   }
 }
-
-WidgetContainer.propTypes = {
-  children: PropTypes.element
-};
 
 export default WidgetContainer;

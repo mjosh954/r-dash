@@ -3,6 +3,11 @@ import Widget from './Widget';
 
 export default class Dashboard extends Component {
 
+  static propTypes = {
+    subreddits: PropTypes.array,
+    removeSubreddit: PropTypes.func
+  }
+
   render () {
     const subreddits = this.props.subreddits || [];
 
@@ -21,10 +26,5 @@ export default class Dashboard extends Component {
     );
   }
 }
-
-Dashboard.propTypes = {
-  subreddits: PropTypes.array,
-  removeSubreddit: PropTypes.func
-};
 
 export default Dashboard;

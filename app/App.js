@@ -5,6 +5,7 @@ import configureStore from './store/configureStore';
 
 const store = configureStore(window.__INITIAL_STATE__);
 const MOUNT_NODE = document.getElementById('app');
+
 const debug = true;
 
 ReactDom.render(

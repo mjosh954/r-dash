@@ -5,6 +5,12 @@ import WidgetContainer from './WidgetContainer';
 
 class Widget extends Component {
 
+  static propTypes = {
+    key: PropTypes.string,
+    subreddit: PropTypes.object,
+    removeSubreddit: PropTypes.func
+  }
+
   render () {
     const listings = this.props.subreddit.data.children.slice(0, 5)
     .map((listing) => <Listing key={listing.data.id} title={listing.data.title} />);
@@ -23,11 +29,5 @@ class Widget extends Component {
   }
 
 }
-
-Widget.propTypes = {
-  key: PropTypes.string,
-  subreddit: PropTypes.object,
-  removeSubreddit: PropTypes.func
-};
 
 export default Widget;

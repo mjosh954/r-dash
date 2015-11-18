@@ -2,6 +2,10 @@ import React, { PropTypes, Component } from 'react';
 
 class Widget extends Component {
 
+  static propTypes = {
+    title: PropTypes.string
+  }
+
   render () {
     return (
       <li className='list-group-item'>
@@ -10,9 +14,5 @@ class Widget extends Component {
     );
   }
 }
-
-Widget.propTypes = {
-  title: PropTypes.string
-};
 
 export default Widget;
